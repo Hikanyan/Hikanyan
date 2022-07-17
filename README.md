@@ -10,4 +10,13 @@
 [![trophy](https://github-profile-trophy.vercel.app/?username=Hikanyan&theme=dracula)](https://github.com/ryo-ma/github-profile-trophy)
 
 ![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=dark)
-![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=radical)![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=merko)![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=tokyonight)![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=onedark)![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=cobalt)![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=synthwave)![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=highcontrast)![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=dracula)!
+
+![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=radical)
+![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=merko)
+![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=tokyonight)
+![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=onedark)
+![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=cobalt)
+![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=synthwave)
+![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=highcontrast)
+![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=dracula)
+
