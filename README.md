@@ -1,6 +1,6 @@
 # Hikanyan
 
-<p align="left"> <a href="https://github.com/Hikanyan/github-profile-trophy%22%3E<img src="https://github-profile-trophy.vercel.app/?username=kouzukimisuzu&theme=dark_lover" /></a> </p>
+<p align="left"> <a href="https://github.com/Hikanyan/github-profile-trophy%22%3E<img src="https://github-profile-trophy.vercel.app/?username=Hikanyan&theme=dark_lover" /></a> </p>
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=Hikanyan)](https://github.com/Hikanyan/github-profile-trophy)
 ### [Portfolio](https://Hikanyan.wixsite.com/Hikanyan-portfolio)
