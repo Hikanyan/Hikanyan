@@ -4,6 +4,21 @@
   <img width="140" src="https://user-images.githubusercontent.com/6661165/91657958-61b4fd00-eb00-11ea-9def-dc7ef5367e34.png" />  
 </p>
 
+<p align="center">
+  <a href="https://github.com/Hikanyan/github-profile-trophy/issues">
+    <img src="https://img.shields.io/github/issues/Hikanyan/github-profile-trophy"/> 
+  </a>
+  <a href="https://github.com/Hikanyan/github-profile-trophy/network/members">
+    <img src="https://img.shields.io/github/forks/Hikanyan/github-profile-trophy"/> 
+  </a>  
+  <a href="https://github.com/Hikanyan/github-profile-trophy/stargazers">
+    <img src="https://img.shields.io/github/stars/Hikanyan/github-profile-trophy"/> 
+  </a>
+    <a href="https://github.com/Hikanyan/github-profile-trophy/LICENSE">
+    <img src="https://img.shields.io/github/license/Hikanyan/github-profile-trophy"/> 
+  </a>
+</p>
+
 ### [Portfolio](URL)
 <p align="left"> 
   <img alt="Top Langs" height="150px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hikanyan&layout=compact&count_private=true&show_icons=true&theme=dark" />
