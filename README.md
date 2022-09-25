@@ -15,6 +15,8 @@
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=Hikanyan&theme=dracula)](https://github.com/ryo-ma/github-profile-tokyonight)
 
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=Hikanyan&count_private=true&show_icons=true&locale=en&layout=compact" alt="Hikanyan" /></p>
+
 ![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=tokyonight)
 
 [Twitter](https://twitter.com/KoiiroHikanyan)
