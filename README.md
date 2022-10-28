@@ -28,5 +28,5 @@
 #### Stats
 
 <p>
-  <img src="https://github-readme-stats.vercel.app/api?username=Hikanyan" height="182" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Hikanyan" height="250" />
 </p>
