@@ -4,9 +4,6 @@
   <img src="https://user-images.githubusercontent.com/6661165/91657958-61b4fd00-eb00-11ea-9def-dc7ef5367e34.png" />  
 </p>
 
-
-
-
 ### [Portfolio](URL)
 <p align="left"> 
   <img alt="Top Langs" height="250" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hikanyan&layout=compact&count_private=true&show_icons=true&theme=dark" />
