@@ -9,7 +9,7 @@
   <img alt="Top Langs" height="250" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hikanyan&layout=compact&count_private=true&show_icons=true&theme=dark" />
 </p>
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=Hikanyan&theme=dracula)]
+[![trophy](https://github-profile-trophy.vercel.app/?username=Hikanyan&theme=dracula)](https://github.com/ryo-ma/github-profile-tokyonight)
 
 #### Stats
 
