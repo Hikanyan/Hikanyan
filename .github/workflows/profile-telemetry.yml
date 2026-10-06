@@ -1,0 +1,177 @@
+name: Profile Telemetry
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 0 * * *"
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/profile-telemetry.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout profile repository
+        uses: actions/checkout@v4
+
+      - name: Generate self-hosted telemetry
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          python3 <<'PY'
+          import datetime as dt
+          import json
+          import os
+          import urllib.request
+          from collections import Counter
+          from html import escape
+          from zoneinfo import ZoneInfo
+
+          owner = os.environ["OWNER"]
+          token = os.environ["GH_TOKEN"]
+
+          headers = {
+              "Accept": "application/vnd.github+json",
+              "Authorization": f"Bearer {token}",
+              "User-Agent": "hikanyan-profile-telemetry",
+              "X-GitHub-Api-Version": "2022-11-28",
+          }
+
+          def get_json(url):
+              request = urllib.request.Request(url, headers=headers)
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  return json.load(response)
+
+          profile = get_json(f"https://api.github.com/users/{owner}")
+
+          repos = []
+          page = 1
+          while True:
+              batch = get_json(
+                  f"https://api.github.com/users/{owner}/repos"
+                  f"?type=owner&sort=updated&per_page=100&page={page}"
+              )
+              repos.extend(batch)
+              if len(batch) < 100:
+                  break
+              page += 1
+
+          now_utc = dt.datetime.now(dt.timezone.utc)
+          cutoff = now_utc - dt.timedelta(days=30)
+
+          def parse_github_time(value):
+              return dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+
+          active_30d = sum(
+              1 for repo in repos
+              if repo.get("pushed_at") and parse_github_time(repo["pushed_at"]) >= cutoff
+          )
+          total_stars = sum(repo.get("stargazers_count", 0) for repo in repos)
+          total_forks = sum(repo.get("forks_count", 0) for repo in repos)
+
+          languages = Counter(
+              repo["language"] for repo in repos
+              if repo.get("language") and not repo.get("fork")
+          )
+          primary_language = languages.most_common(1)[0][0] if languages else "N/A"
+
+          updated = now_utc.astimezone(ZoneInfo("Asia/Tokyo")).strftime("%Y-%m-%d %H:%M JST")
+
+          values = {
+              "REPOSITORIES": str(profile.get("public_repos", len(repos))),
+              "ACTIVE_30D": str(active_30d),
+              "STARS": str(total_stars),
+              "FORKS": str(total_forks),
+              "FOLLOWERS": str(profile.get("followers", 0)),
+              "PRIMARY": primary_language.upper(),
+          }
+
+          cards = [
+              ("REPOSITORIES", values["REPOSITORIES"]),
+              ("ACTIVE / 30D", values["ACTIVE_30D"]),
+              ("TOTAL STARS", values["STARS"]),
+              ("TOTAL FORKS", values["FORKS"]),
+              ("FOLLOWERS", values["FOLLOWERS"]),
+              ("PRIMARY LANG", values["PRIMARY"]),
+          ]
+
+          card_svg = []
+          card_w, card_h = 292, 92
+          start_x, start_y = 42, 78
+          gap_x, gap_y = 20, 18
+
+          for index, (label, value) in enumerate(cards):
+              row, col = divmod(index, 3)
+              x = start_x + col * (card_w + gap_x)
+              y = start_y + row * (card_h + gap_y)
+              card_svg.append(f"""
+              <g transform="translate({x} {y})">
+                <rect width="{card_w}" height="{card_h}" rx="16"
+                      fill="#ffffff" fill-opacity=".045"
+                      stroke="#7eeaff" stroke-opacity=".16"/>
+                <text x="20" y="30" class="mono" fill="#8fa3bd"
+                      font-size="12" letter-spacing="1.5">{escape(label)}</text>
+                <text x="20" y="66" class="sans" fill="#f6fbff"
+                      font-size="26" font-weight="700">{escape(value)}</text>
+              </g>
+              """)
+
+          svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="330" viewBox="0 0 1000 330" role="img" aria-labelledby="title desc">
+            <title id="title">HIKANYAN GitHub system telemetry</title>
+            <desc id="desc">Self-hosted GitHub telemetry generated from the GitHub API.</desc>
+            <defs>
+              <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#07111f"/>
+                <stop offset="52%" stop-color="#0b1020"/>
+                <stop offset="100%" stop-color="#160d25"/>
+              </linearGradient>
+              <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#5ee7ff"/>
+                <stop offset="50%" stop-color="#8a7dff"/>
+                <stop offset="100%" stop-color="#ff63d8"/>
+              </linearGradient>
+              <style>
+                .mono {{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }}
+                .sans {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }}
+              </style>
+            </defs>
+            <rect width="1000" height="330" rx="22" fill="url(#bg)"/>
+            <rect x="1" y="1" width="998" height="328" rx="21"
+                  fill="none" stroke="#79eaff" stroke-opacity=".18"/>
+            <text x="42" y="38" class="mono" fill="#6de8ff"
+                  font-size="15" letter-spacing="2">SYSTEM TELEMETRY // GITHUB API</text>
+            <text x="958" y="38" text-anchor="end" class="mono"
+                  fill="#8fa3bd" font-size="12">{escape(updated)}</text>
+            <rect x="42" y="54" width="916" height="2" fill="url(#accent)" opacity=".82"/>
+            {''.join(card_svg)}
+            <text x="500" y="310" text-anchor="middle" class="mono"
+                  fill="#8fa3bd" font-size="11" letter-spacing="2">
+              SELF-HOSTED // AUTOMATICALLY GENERATED // NO THIRD-PARTY STATS SERVICE
+            </text>
+          </svg>
+          """
+
+          os.makedirs("assets", exist_ok=True)
+          with open("assets/system-status.svg", "w", encoding="utf-8") as f:
+              f.write(svg)
+          PY
+
+      - name: Commit telemetry update
+        run: |
+          if git diff --quiet -- assets/system-status.svg; then
+            echo "Telemetry is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/system-status.svg
+          git commit -m "chore: refresh profile telemetry"
+          git push
