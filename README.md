@@ -29,7 +29,7 @@
 
 ## // ACTIVITY SIGNAL
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Hikanyan&theme=github-compact&hide_border=true&area=true" width="95%" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Hikanyan&theme=transparent" width="95%" alt="GitHub Activity" />
 
 <br>
 
