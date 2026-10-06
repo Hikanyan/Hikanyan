@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="92" viewBox="0 0 1000 92" role="img" aria-label="Animated system signal">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ee7ff"/>
+      <stop offset="50%" stop-color="#8a7dff"/>
+      <stop offset="100%" stop-color="#ff63d8"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1000" height="92" rx="18" fill="#0b1020"/>
+  <path d="M28 46h944" stroke="#7eeaff" stroke-opacity=".12"/>
+  <path d="M38 46h170l18-18 24 36 24-24 18 6h420l18-20 24 40 24-28 20 8h154"
+        fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".78"/>
+  <circle cx="38" cy="46" r="5" fill="#5ee7ff" filter="url(#glow)">
+    <animate attributeName="opacity" values="1;.25;1" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="962" cy="46" r="5" fill="#ff63d8" filter="url(#glow)">
+    <animate attributeName="opacity" values=".25;1;.25" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="-160" y="10" width="140" height="72" rx="14" fill="url(#g)" opacity=".08">
+    <animate attributeName="x" from="-160" to="1020" dur="3.4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="488" y="14" width="24" height="64" rx="12" fill="#8a7dff" opacity=".08">
+    <animate attributeName="opacity" values=".05;.22;.05" dur="1.2s" repeatCount="indefinite"/>
+  </rect>
+</svg>
