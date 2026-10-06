@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-label="Decorative engineering HUD frame">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="52%" stop-color="#0b1020"/>
+      <stop offset="100%" stop-color="#160d25"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ee7ff"/>
+      <stop offset="50%" stop-color="#8a7dff"/>
+      <stop offset="100%" stop-color="#ff63d8"/>
+    </linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#7eeaff" stroke-opacity=".055"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="220" rx="26" fill="url(#bg)"/>
+  <rect width="1200" height="220" rx="26" fill="url(#grid)"/>
+  <path d="M0 78L160 0H0Z" fill="#5ee7ff" opacity=".08"/>
+  <path d="M1200 0H1035L1200 94Z" fill="#ff63d8" opacity=".08"/>
+  <path d="M62 54h170M968 54h170" stroke="url(#accent)" stroke-width="3" opacity=".9"/>
+  <circle cx="62" cy="54" r="5" fill="#5ee7ff" filter="url(#glow)"/>
+  <circle cx="1138" cy="54" r="5" fill="#ff63d8" filter="url(#glow)"/>
+  <path d="M120 165h300l36-36h288l36 36h300" fill="none" stroke="url(#accent)" stroke-width="2" opacity=".62"/>
+  <path d="M474 129h252" stroke="#f4f8ff" stroke-width="2" opacity=".18"/>
+  <circle cx="600" cy="129" r="7" fill="#8a7dff" opacity=".9" filter="url(#glow)"/>
+  <path d="M38 188h240M922 188h240" stroke="#7eeaff" stroke-opacity=".22"/>
+</svg>
