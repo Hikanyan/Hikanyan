@@ -2,15 +2,25 @@
 
 <br>
 
-# Hikanyan
+# HIKANYAN
 
-### Game Developer · Technical Artist
-
-*Building games, tools, and systems.*
+`GAME DEVELOPMENT // TECHNICAL ART // ENGINEERING`
 
 <br>
 
-`Unity`　`C#`　`C++`　`Python`　`AWS`　`Firebase`
+### Building systems beyond the screen.
+
+Games. Tools. Infrastructure. Automation.
+
+<br>
+
+`UNITY`　`C#`　`C++`　`PYTHON`　`AWS`　`FIREBASE`
+
+<br><br>
+
+---
+
+<sub>◈ SYSTEM STATUS : ACTIVE</sub>
 
 <br><br>
 
@@ -18,15 +28,13 @@
 
 <br><br>
 
----
-
-<sub>
-Game Development　·　Technical Art　·　Tools　·　Automation
-</sub>
+`GAME SYSTEMS`　·　`TOOLS`　·　`AUTOMATION`　·　`INFRASTRUCTURE`
 
 <br><br>
 
-**Make it work. Make it better.**
+### ENGINEER THE EXPERIENCE.
+
+<sub>Build what doesn't exist.</sub>
 
 <br><br>
 
